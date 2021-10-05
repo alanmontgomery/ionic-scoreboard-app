@@ -1,0 +1,7 @@
+{
+  "name": "ionic-react-scores",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
