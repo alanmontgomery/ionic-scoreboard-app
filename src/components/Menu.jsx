@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { arrowRedoOutline, arrowRedoSharp, arrowUndoOutline, arrowUndoSharp, mailOutline, mailSharp, pieChartOutline, pieChartSharp } from 'ionicons/icons';
+import { arrowRedoOutline, arrowRedoSharp, arrowUndoOutline, arrowUndoSharp, mailOutline, mailSharp, pieChartOutline, pieChartSharp, saveOutline, saveSharp } from 'ionicons/icons';
 import './Menu.css';
 
 const appPages = [
@@ -26,6 +26,12 @@ const appPages = [
     url: '/page/Previous',
     iosIcon: arrowUndoOutline,
     mdIcon: arrowUndoSharp
+  },
+  {
+    title: 'Saved players',
+    url: '/page/Players',
+    iosIcon: saveOutline,
+    mdIcon: saveSharp
   }
 ];
 
@@ -36,8 +42,8 @@ const Menu = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Ionic Scoreboard</IonListHeader>
+          <IonNote>An awesome scoreboard</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
