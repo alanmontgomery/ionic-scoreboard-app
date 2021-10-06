@@ -1,7 +1,5 @@
 {
-  "name": "ionic-react-scores",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "New Ionic App",
+  "integrations": {},
   "type": "react"
 }
