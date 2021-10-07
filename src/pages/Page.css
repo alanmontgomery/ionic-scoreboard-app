@@ -1,0 +1,11 @@
+.active-scoreboard-card {
+
+	--ion-card-background: var(--ion-color-primary);
+	--ion-text-color: white;
+}
+
+.player-square {
+
+	/* border: 1px solid red; */
+	/* height: 5rem; */
+}

@@ -1,0 +1,63 @@
+.customHeader {
+
+	img {
+
+		border-bottom-left-radius: 150px;
+		// border-bottom-right-radius: 50px;
+	}
+}
+
+.customBackButton {
+
+	position: absolute;
+	top: 3rem;
+	left: 1.4rem;
+	border-radius: 500px;
+	padding: 0.5rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 2px solid white;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+
+		color: rgb(255, 255, 255);
+		height: 1.75rem;
+		width: 1.75rem;
+	}
+}
+
+.mainContent {
+
+	// position: relative;
+	margin-top: -5rem !important;
+	z-index: 99;
+}
+
+.placeHeading {
+
+	$grad_color: #f8f8f8;
+	$main_color: white;
+
+	background:
+		linear-gradient(135deg, $grad_color 25%, transparent 25%) -50px 0,
+		linear-gradient(225deg, $grad_color 25%, transparent 25%) -50px 0,
+		linear-gradient(315deg, $grad_color 25%, transparent 25%),
+		linear-gradient(45deg, $grad_color 25%, transparent 25%);
+		background-size: 100px 100px;
+		background-color: $main_color;
+}
+
+.playerItem {
+
+	margin-left: 1.2rem;
+	margin-right: 1.2rem;
+	--ion-item-background: var(--ion-color-primary);
+	--color: white;
+	--border-radius: 10px;
+	--padding-top: 0.5rem;
+	--padding-bottom: 0.5rem;
+}

@@ -1,18 +1,22 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardTitle, IonCol, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar, useIonModal } from '@ionic/react';
-import { arrowUndoCircleOutline, arrowUndoOutline, contract, contractOutline, personOutline, statsChartOutline } from 'ionicons/icons';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonModal } from '@ionic/react';
+import { arrowForward, arrowUndoOutline, contractOutline } from 'ionicons/icons';
+import { useStoreState } from 'pullstate';
 import { useRef } from 'react';
-import { useParams } from 'react-router';
 import GenerateModal from '../components/GenerateModal';
+import { MainStore } from '../store';
+import { getActiveScoreboard } from '../store/Selectors';
 
 import './Page.css';
 
 const Dashboard = () => {
 
   const pageRef = useRef();
-  const [ present, dismiss ] = useIonModal(GenerateModal, {
+  const activeScoreboard = useStoreState(MainStore, getActiveScoreboard)
 
-    dismiss: () => dismiss()
-  })
+  const [ presentGenerateModal, dismissGenerateModal ] = useIonModal(GenerateModal, {
+
+    dismiss: () => dismissGenerateModal()
+  });
 
   const features = [
 
@@ -21,13 +25,8 @@ const Dashboard = () => {
       icon: contractOutline
     },
     {
-      label: "Save players",
-      icon: personOutline
-    },
-    {
-      label: "See previous scores",
-      icon: arrowUndoOutline,
-      
+      label: "See previous scoreboards",
+      icon: arrowUndoOutline
     }
   ];
 
@@ -41,7 +40,7 @@ const Dashboard = () => {
 
   const handleShow = () => {
 
-    present({
+    presentGenerateModal({
 
       presentingElement: pageRef.current
     });
@@ -67,7 +66,6 @@ const Dashboard = () => {
 
         <IonCard className="animate__animated animate__slideInLeft">
           <IonCardContent>
-            {/* <IonIcon icon={ statsChartOutline } color="primary" style={{ fontSize: "2rem" }} /> */}
 
             <IonRow className="ion-justify-content-center ion-align-items-center">
               <IonCol size="3">
@@ -85,6 +83,45 @@ const Dashboard = () => {
             </IonList>
           </IonCardContent>
         </IonCard>
+
+        { activeScoreboard &&
+        
+          <IonCard className="animate__animated animate__slideInLeft active-scoreboard-card">
+            <IonCardContent>
+              <IonCardTitle>Active Scoreboard</IonCardTitle>
+
+              <IonRow>
+                <IonCol size="6">
+                  <IonCardSubtitle color="light">Title</IonCardSubtitle>
+                  <IonText color="light">
+                    <p className="ion-text-wrap">{ activeScoreboard.title }</p>
+                  </IonText>
+                </IonCol>
+
+                <IonCol size="3" className="ion-text-center">
+                  <IonCardSubtitle color="light">Players</IonCardSubtitle>
+                  <IonText color="light"> 
+                    <p>{ activeScoreboard.players.length }</p>
+                  </IonText>
+                </IonCol>
+
+                <IonCol size="2">
+                  <IonButton disabled={ activeScoreboard.done } color="light" fill="outline" routerLink={ `/page/active-scoreboard/${ activeScoreboard.id }`}>
+                    <IonIcon icon={ arrowForward } />
+                  </IonButton>
+                </IonCol>
+              </IonRow>
+
+              { activeScoreboard.done &&
+                <IonRow>
+                  <IonCol size="12">
+                    <IonCardSubtitle color="light">Scoreboard finished.</IonCardSubtitle>
+                  </IonCol>
+                </IonRow>
+              }
+            </IonCardContent>
+          </IonCard>
+        }
 
         <IonCard className="animate__animated animate__slideInLeft">
           <IonCardContent>

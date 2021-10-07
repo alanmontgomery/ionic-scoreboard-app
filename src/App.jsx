@@ -26,6 +26,8 @@ import './theme/variables.css';
 //  Import animate.style
 import "animate.css"
 import Dashboard from './pages/Dashboard';
+import ActiveScoreboard from './pages/ActiveScoreboard';
+import PreviousScoreboards from './pages/PreviousScoreboards';
 
 const App = () => {
   return (
@@ -37,12 +39,17 @@ const App = () => {
             <Route path="/" exact={true}>
               <Redirect to="/page/Dashboard" />
             </Route>
-            {/* <Route path="/page/:name" exact={true}>
-              <Page />
-            </Route> */}
 
             <Route path="/page/Dashboard" exact={true}>
               <Dashboard />
+            </Route>
+
+            <Route path="/page/Previous" exact={true}>
+              <PreviousScoreboards />
+            </Route>
+
+            <Route path="/page/active-scoreboard/:id" exact={true}>
+              <ActiveScoreboard />
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>

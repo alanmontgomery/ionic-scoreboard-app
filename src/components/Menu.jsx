@@ -1,17 +1,6 @@
-import {
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-} from '@ionic/react';
-
+import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote } from '@ionic/react';
 import { useLocation } from 'react-router-dom';
-import { arrowRedoOutline, arrowRedoSharp, arrowUndoOutline, arrowUndoSharp, mailOutline, mailSharp, pieChartOutline, pieChartSharp, saveOutline, saveSharp } from 'ionicons/icons';
+import { arrowUndoOutline, arrowUndoSharp, pieChartOutline, pieChartSharp } from 'ionicons/icons';
 import './Menu.css';
 
 const appPages = [
@@ -22,16 +11,10 @@ const appPages = [
     mdIcon: pieChartSharp
   },
   {
-    title: 'Previous scores',
+    title: 'Previous scoreboards',
     url: '/page/Previous',
     iosIcon: arrowUndoOutline,
     mdIcon: arrowUndoSharp
-  },
-  {
-    title: 'Saved players',
-    url: '/page/Players',
-    iosIcon: saveOutline,
-    mdIcon: saveSharp
   }
 ];
 
