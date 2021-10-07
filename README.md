@@ -3,7 +3,7 @@ An example of a scoreboard app built using Ionic and React
 <br />
 If you'd like to support, you can <a className="link" href="https://www.buymeacoffee.com/ionicreacthub" target="_blank" rel="noopener">buy me a coffee</a> ☕️
 
-![Ionic Scoreboard App UI](https://repository-images.githubusercontent.com/390244002/f2ae1f3c-3661-465a-9e60-c17f4cfc576c)
+![Ionic Scoreboard App UI](https://repository-images.githubusercontent.com/414332066/b7e964d5-5e10-406e-8775-ec446c1bf6d2)
 
 ### Included in this Ionic React Template/UI
 * Add scoreboards & players
