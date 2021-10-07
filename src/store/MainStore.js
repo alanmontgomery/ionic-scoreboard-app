@@ -28,6 +28,7 @@ export const addScoreboard = (players, details) => {
 			state.scoreboards[index].active = false;
 		});
 	});
+	
 
 	const newScoreboard = {
 
