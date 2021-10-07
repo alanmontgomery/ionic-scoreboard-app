@@ -1,7 +1,7 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonModal } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonModal, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonText, IonTitle, IonToolbar, useIonModal } from '@ionic/react';
 import { arrowForward, arrowUndoOutline, contractOutline } from 'ionicons/icons';
 import { useStoreState } from 'pullstate';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import GenerateModal from '../components/GenerateModal';
 import { MainStore } from '../store';
 import { getActiveScoreboard } from '../store/Selectors';
@@ -11,7 +11,9 @@ import './Page.css';
 const Dashboard = () => {
 
   const pageRef = useRef();
-  const activeScoreboard = useStoreState(MainStore, getActiveScoreboard)
+  const activeScoreboard = useStoreState(MainStore, getActiveScoreboard);
+
+  const [ showModal, setShowModal ] = useState(false);
 
   const [ presentGenerateModal, dismissGenerateModal ] = useIonModal(GenerateModal, {
 
@@ -123,9 +125,13 @@ const Dashboard = () => {
         <IonCard className="animate__animated animate__slideInLeft">
           <IonCardContent>
             <IonCardTitle>Ready to get started?</IonCardTitle>
-            <IonButton expand="block" className="ion-margin-top" onClick={ handleShow }>Generate a scoreboard &rarr;</IonButton>
+            <IonButton expand="block" className="ion-margin-top" onClick={ () => setShowModal(true) }>Generate a scoreboard &rarr;</IonButton>
           </IonCardContent>
         </IonCard>
+
+        <IonModal isOpen={ showModal }>
+          <GenerateModal dismiss={ () => setShowModal(false) } />
+        </IonModal>
 
       </IonContent>
     </IonPage>
