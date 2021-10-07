@@ -40,10 +40,7 @@ const Dashboard = () => {
 
   const handleShow = () => {
 
-    presentGenerateModal({
-
-      presentingElement: pageRef.current
-    });
+    presentGenerateModal();
   }
 
   return (
