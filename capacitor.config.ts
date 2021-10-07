@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'ionic-react-scoreboard',
+  appId: 'io.ionic.starter',
+  appName: 'New Ionic App',
   webDir: 'build',
   bundledWebRuntime: false
 };

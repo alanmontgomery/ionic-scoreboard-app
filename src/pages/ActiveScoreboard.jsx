@@ -44,7 +44,7 @@ const ActiveScoreboard = () => {
 
 					<div className="ion-justify-content-between">
 						<div className={ styles.customBackButton } onClick={ () => router.goBack() }>
-							<IonIcon icon={ arrowBack } />
+							<IonIcon icon={ arrowBack } color="light" />
 						</div>
 					</div>
 
@@ -84,7 +84,7 @@ const ActiveScoreboard = () => {
 
               <IonItem lines="none" className={ `${ styles.playerItem } animate__animated animate__fadeIn` }>
                 <IonBadge color="light" className="ion-margin-end">{ index + 1 }</IonBadge>
-                <IonLabel className="ion-t">{ player.name }</IonLabel>
+                <IonLabel className="ion-text-wrap">{ player.name }</IonLabel>
                 <IonLabel>
                   { player.score } points
                 </IonLabel>

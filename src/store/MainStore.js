@@ -21,6 +21,14 @@ export const addScoreboard = (players, details) => {
 
 	MainStore.update(s => { s.scoreboards = s.scoreboards.map(scoreboard => scoreboard.active = false) });
 
+	MainStore.update(state => {
+
+		state.scoreboards.forEach((scoreboard, index) => {
+
+			state.scoreboards[index].active = false;
+		});
+	});
+
 	const newScoreboard = {
 
 		id: Date.now(),

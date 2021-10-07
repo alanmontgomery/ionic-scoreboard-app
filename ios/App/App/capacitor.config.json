@@ -1,6 +1,6 @@
 {
-	"appId": "com.example.app",
-	"appName": "ionic-react-scoreboard",
+	"appId": "io.ionic.starter",
+	"appName": "New Ionic App",
 	"webDir": "build",
 	"bundledWebRuntime": false
 }
